@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
 
-const BubblePage = () => {
+const BubblePage = (props) => {
   const [colorList, setColorList] = useState([]);
   const newColorList = colorList;
 
@@ -19,10 +19,28 @@ const BubblePage = () => {
       .catch(err => console.log(err))
   }, [])
 
+  const [credentials, setCredentials] = useState({
+    username: 'Lambda School',
+    password: 'i<3Lambd4'
+  });
+
+  const logout = e => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("/api/login", credentials)
+      .then(res => {
+        console.log("res", res)
+        localStorage.removeItem("token");
+        return props.history.push("/")
+      })
+      .catch(err => console.log(err.response))
+  };
+
   return (
     <>
       <ColorList colors={colorList} updateColors={setColorList} />
       <Bubbles colors={colorList} />
+      <button onClick={logout}>Logout</button>
     </>
   );
 };

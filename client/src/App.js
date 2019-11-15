@@ -11,13 +11,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <>
-          <Link to="/bubble-page">Bubble Page</Link>
-        </>
         <Switch>
           <Route exact path="/" component={Login} />
           <PrivateRoute path="/bubble-page">
-            <BubblePage />
+            <Route exact path="/bubble-page" component={BubblePage} />
+            {/* <BubblePage /> */}
           </PrivateRoute>
         </Switch>
       </div>
