@@ -21,7 +21,7 @@ const Login = (props) => {
         console.log("res", res)
         localStorage.setItem("token", res.data.payload);
         if ("token" ? setLoggedIn(true) : null);
-        return props.history.push("/bubblepage")
+        return props.history.push("/bubble-page")
       })
       .catch(err => console.log(err.response))
   };
