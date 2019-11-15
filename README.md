@@ -38,11 +38,11 @@ Put thinkgs in private routes, only allow access to those with a token, and enab
 
 - [ ] Describe how web servers work.
 
-
+It stores web pages and delivers them to users based on HTTP requests sent by the users
 
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 
-
+Creat, Read, Update, Delete
 
 
 ## Project Set Up
