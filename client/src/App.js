@@ -10,6 +10,9 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <>
+          <Link to="/bubble-page">Bubble Page</Link>
+        </>
         <Switch>
           <Route exact path="/" component={Login} />
           <PrivateRoute path="/bubble-page">
