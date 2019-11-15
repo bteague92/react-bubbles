@@ -21,10 +21,10 @@ const ColorList = ({ colors, updateColors }) => {
       .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(res => {
         console.log(res);
-        colors.map(i => {
-          if (i.id === colorToEdit.id) {
+        colors.map(i => {  ///mapping through colors array
+          if (i.id === colorToEdit.id) {  ///if color mapped id equals current colors id
             setColorToEdit({
-              [e.target.name]: e.target.value
+              [e.target.name]: e.target.value  ///change current colors values
             })
           }
         })
@@ -37,8 +37,8 @@ const ColorList = ({ colors, updateColors }) => {
       .delete(`/api/colors/${color.id}`)
       .then(res => {
         console.log(res);
-        const newArray = colors.filter(i => i.id !== color.id)
-        updateColors(newArray)
+        const newArray = colors.filter(i => i.id !== color.id)  ///new array without current color
+        updateColors(newArray)  //updates color list with new array
       })
       .catch(err => console.log(err))
   };
